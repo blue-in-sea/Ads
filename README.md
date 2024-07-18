@@ -1,7 +1,6 @@
 # Ads
 ## [TikTok Creative Center](https://ads.tiktok.com/business/creativecenter/pc/en?rid=vcxdlcdh10o)
-- Advertising on TikTok
-  * [About TikTok Ads Manager](https://ads.tiktok.com/help/article/tiktok-ads-manager-intro?lang=en)
+- [About TikTok Ads Manager](https://ads.tiktok.com/help/article/tiktok-ads-manager-intro?lang=en)
 
 ## [16 of the Best TikTok Tools to Improve Your Marketing](https://blog.hootsuite.com/tiktok-tools/)
 ## [广告创建与投放](https://school.oceanengine.com/product_help/content/668400000006/121544)
