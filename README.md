@@ -15,7 +15,10 @@
 
    * Under [Analytics](https://ads.tiktok.com/i18n/audience-insight?aadvid=7393058749373546497)
     <img width="959" alt="Screenshot 2024-07-18 at 3 31 04 PM" src="https://github.com/user-attachments/assets/84ed57c3-5137-49bc-b2b0-f56b3b39f348">
-
+    
+- [Trending](https://ads.tiktok.com/business/creativecenter/pc/en?rid=vcxdlcdh10o)
+  * Learn from the Top-Performance Ads
+  * [Explore Top Ads on TikTok](https://ads.tiktok.com/business/creativecenter/inspiration/topads/pc/en?period=30&region=US)
     
 ## [16 of the Best TikTok Tools to Improve Your Marketing](https://blog.hootsuite.com/tiktok-tools/)
 ## [广告创建与投放](https://school.oceanengine.com/product_help/content/668400000006/121544)
