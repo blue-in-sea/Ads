@@ -7,13 +7,13 @@
   * **Analytics**: You can create custom reports, or use one of our reporting templates to go deeper into your ad insights. You can also schedule reports to generate at a specific time.
 
  - [Ads Manager Walk Through]
-  * Create a campaign by objectives 
+   * Create a campaign by objectives 
     <img width="929" alt="Screenshot 2024-07-18 at 3 25 39 PM" src="https://github.com/user-attachments/assets/579dc9d2-6238-4df9-aa6f-039f9aa6e7a2">
 
-  * Automated rules in Tools
+   * Automated rules in Tools
     <img width="946" alt="Screenshot 2024-07-18 at 3 29 19 PM" src="https://github.com/user-attachments/assets/dcebcb93-c586-445b-b28e-94aa55a532aa">
 
-  * Under [Analytics](https://ads.tiktok.com/i18n/audience-insight?aadvid=7393058749373546497)
+   * Under [Analytics](https://ads.tiktok.com/i18n/audience-insight?aadvid=7393058749373546497)
     <img width="959" alt="Screenshot 2024-07-18 at 3 31 04 PM" src="https://github.com/user-attachments/assets/84ed57c3-5137-49bc-b2b0-f56b3b39f348">
 
     
