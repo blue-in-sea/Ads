@@ -19,7 +19,13 @@
 - [Trending](https://ads.tiktok.com/business/creativecenter/pc/en?rid=vcxdlcdh10o)
   * Learn from the Top-Performance Ads
   * [Explore Top Ads on TikTok](https://ads.tiktok.com/business/creativecenter/inspiration/topads/pc/en?period=30&region=US)
-    
+
+- [About This Ad](https://ads.tiktok.com/business/creativecenter/topads/7340427969016102913/pc/en?countryCode=US&from=001110&period=30)
+  * Ad performance Merics
+     * **CTR** is the number of clicks that your ad receives divided by the number of times your ad is shown: clicks ÷ impressions = CTR. For example, if you had 5 clicks and 100 impressions, then your CTR would be 5%.
+ 
+    <img width="624" alt="Screenshot 2024-07-18 at 3 55 56 PM" src="https://github.com/user-attachments/assets/55942556-dd44-4eb2-a703-33424aea0049">
+
 ## [16 of the Best TikTok Tools to Improve Your Marketing](https://blog.hootsuite.com/tiktok-tools/)
 ## [广告创建与投放](https://school.oceanengine.com/product_help/content/668400000006/121544)
 ## [抖音广告设计与推送算法](https://www.admin5.com/article/20201110/974851.shtml)
@@ -111,5 +117,6 @@ https://www.hellointerview.com/learn/system-design/answer-keys/ad-click-aggregat
 
 <img width="914" alt="Screenshot 2024-07-18 at 1 01 53 PM" src="https://github.com/user-attachments/assets/1f528fe8-22f7-48d4-840a-2a08e59930f0">
 
+#### API / System Interface
 
    
