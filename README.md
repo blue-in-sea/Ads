@@ -4,7 +4,11 @@
   * **Dashboard**: Allows you to track changes in performance and review ad account data such as active campaigns, budget spending, and charts for tracking ad performance over time.
   * **Campaign**: Review all campaigns, ad groups, and ads you have created.
   * **Tools**: You can choose from 6 options in the drop-down list to manage what goes into your ads and who you want to reach: Events, Creatives, Audiences, Catalogs, Comments, and Instant Pages.
-  * **Analytics**: You can create custom reports, or use one of our reporting templates to go deeper into your ad insights. You can also schedule reports to generate at a specific time.
+  * **Analytics**: You can create custom reports, or use one of our reporting templates to go deeper into your ad insights. You can also schedule reports to generate at a specific time.    
+
+<img width="929" alt="Screenshot 2024-07-18 at 3 25 39 PM" src="https://github.com/user-attachments/assets/b9789fb7-be98-4a31-82dc-08311ea74c1a">
+
+ 
     
 ## [16 of the Best TikTok Tools to Improve Your Marketing](https://blog.hootsuite.com/tiktok-tools/)
 ## [广告创建与投放](https://school.oceanengine.com/product_help/content/668400000006/121544)
