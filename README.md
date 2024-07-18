@@ -6,7 +6,7 @@
   * **Tools**: You can choose from 6 options in the drop-down list to manage what goes into your ads and who you want to reach: Events, Creatives, Audiences, Catalogs, Comments, and Instant Pages.
   * **Analytics**: You can create custom reports, or use one of our reporting templates to go deeper into your ad insights. You can also schedule reports to generate at a specific time.
 
- - [Ads Manager Walk Through]
+ - [Ads Manager Walk Through](https://ads.tiktok.com/i18n/dashboard/?aadvid=7393058749373546497)
    * Create a campaign by objectives 
     <img width="929" alt="Screenshot 2024-07-18 at 3 25 39 PM" src="https://github.com/user-attachments/assets/579dc9d2-6238-4df9-aa6f-039f9aa6e7a2">
 
