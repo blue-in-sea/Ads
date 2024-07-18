@@ -23,6 +23,7 @@
 - [About This Ad](https://ads.tiktok.com/business/creativecenter/topads/7340427969016102913/pc/en?countryCode=US&from=001110&period=30)
   * Ad performance Merics
      * **CTR** is the number of clicks that your ad receives divided by the number of times your ad is shown: clicks ÷ impressions = CTR. For example, if you had 5 clicks and 100 impressions, then your CTR would be 5%.
+     * **CVR** is calculated by dividing the number of users who converted by the number of users who clicked on the ad, and then multiplying by 100. For example, if 1,000 users saw an ad and 15 users installed the advertised app, the CVR would be 1.5%. 
  
     <img width="624" alt="Screenshot 2024-07-18 at 3 55 56 PM" src="https://github.com/user-attachments/assets/55942556-dd44-4eb2-a703-33424aea0049">
 
