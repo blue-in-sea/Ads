@@ -95,7 +95,8 @@ https://www.hellointerview.com/learn/system-design/answer-keys/ad-click-aggregat
 
 **Ad Click Aggregator** is a system that collects and aggregates data on ad clicks. It is used by advertisers to track the performance of their ads and optimize their campaigns. 
 
-<img width="916" alt="Screenshot 2024-07-18 at 1 04 01 PM" src="https://github.com/user-attachments/assets/a7fd6a29-ac23-4c82-aa90-8d4a7e65b490">
+<img width="939" alt="Screenshot 2024-07-18 at 4 41 29 PM" src="https://github.com/user-attachments/assets/05aab247-9be3-4963-868f-ca76c24bf95a">
+
 
 
 #### Functional Requirements 
@@ -117,8 +118,8 @@ https://www.hellointerview.com/learn/system-design/answer-keys/ad-click-aggregat
 7. Demographic and geo profiling of users
 8. Conversion tracking
 
+<img width="939" alt="Screenshot 2024-07-18 at 4 41 29 PM" src="https://github.com/user-attachments/assets/49fcf89d-e6e0-406f-9dbf-a5abb0163de1">
 
-<img width="914" alt="Screenshot 2024-07-18 at 1 01 53 PM" src="https://github.com/user-attachments/assets/1f528fe8-22f7-48d4-840a-2a08e59930f0">
 
 #### API / System Interface
 * Input: 
