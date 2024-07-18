@@ -121,5 +121,19 @@ https://www.hellointerview.com/learn/system-design/answer-keys/ad-click-aggregat
 <img width="914" alt="Screenshot 2024-07-18 at 1 01 53 PM" src="https://github.com/user-attachments/assets/1f528fe8-22f7-48d4-840a-2a08e59930f0">
 
 #### API / System Interface
+* Input: 
+  1. Click Data
+  2. Advertiser Query
+   
+* Output:    
+  1. Redirect 
+  2. Aggregrated Click Metrcis
 
+### Data Flow 
+1. User clicks on an ad on a website.
+2. The click is tracked and stored in the system.
+3. The user is redirected to the advertiser's website.
+4. Advertisers query the system for aggregated click metrics.
+
+   
    
