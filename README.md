@@ -4,11 +4,17 @@
   * **Dashboard**: Allows you to track changes in performance and review ad account data such as active campaigns, budget spending, and charts for tracking ad performance over time.
   * **Campaign**: Review all campaigns, ad groups, and ads you have created.
   * **Tools**: You can choose from 6 options in the drop-down list to manage what goes into your ads and who you want to reach: Events, Creatives, Audiences, Catalogs, Comments, and Instant Pages.
-  * **Analytics**: You can create custom reports, or use one of our reporting templates to go deeper into your ad insights. You can also schedule reports to generate at a specific time.    
-
-<img width="929" alt="Screenshot 2024-07-18 at 3 25 39 PM" src="https://github.com/user-attachments/assets/b9789fb7-be98-4a31-82dc-08311ea74c1a">
-
+  * **Analytics**: You can create custom reports, or use one of our reporting templates to go deeper into your ad insights. You can also schedule reports to generate at a specific time.
  
+(ex.)  create a campaign by objectives 
+<img width="929" alt="Screenshot 2024-07-18 at 3 25 39 PM" src="https://github.com/user-attachments/assets/579dc9d2-6238-4df9-aa6f-039f9aa6e7a2">
+
+(ex.)  automated rules in Tools
+<img width="946" alt="Screenshot 2024-07-18 at 3 29 19 PM" src="https://github.com/user-attachments/assets/dcebcb93-c586-445b-b28e-94aa55a532aa">
+
+(ex.)  under [Analytics](https://ads.tiktok.com/i18n/audience-insight?aadvid=7393058749373546497)
+ <img width="959" alt="Screenshot 2024-07-18 at 3 31 04 PM" src="https://github.com/user-attachments/assets/84ed57c3-5137-49bc-b2b0-f56b3b39f348">
+
     
 ## [16 of the Best TikTok Tools to Improve Your Marketing](https://blog.hootsuite.com/tiktok-tools/)
 ## [广告创建与投放](https://school.oceanengine.com/product_help/content/668400000006/121544)
