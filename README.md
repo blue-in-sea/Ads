@@ -118,7 +118,7 @@ https://www.hellointerview.com/learn/system-design/answer-keys/ad-click-aggregat
 7. Demographic and geo profiling of users
 8. Conversion tracking
 
-<img width="939" alt="Screenshot 2024-07-18 at 4 41 29 PM" src="https://github.com/user-attachments/assets/49fcf89d-e6e0-406f-9dbf-a5abb0163de1">
+<img width="937" alt="Screenshot 2024-07-18 at 4 42 10 PM" src="https://github.com/user-attachments/assets/8549bb28-8d55-4a58-a204-f31c174e68ea">
 
 
 #### API / System Interface
