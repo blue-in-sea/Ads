@@ -57,4 +57,36 @@
 * 抖音的电商模式使其在流行趋势的快速变现上具有优势，而小红书的广告模式则更注重长期品牌价值的培养和用户的深度参与。
 * 对于追求快速曝光和短期内实现销售转化的品牌，抖音是一个更为合适的选择；而对于那些注重品牌形象长期建设和深度用户关系维护的品牌，则可以考虑在小红书上进行更为深入的内容营销。
 
+
+## System Design Interview: Design an Ad Click Aggregator 
+https://www.hellointerview.com/learn/system-design/answer-keys/ad-click-aggregator
+
+**Ad Click Aggregator** is a system that collects and aggregates data on ad clicks. It is used by advertisers to track the performance of their ads and optimize their campaigns. 
+
+<img width="916" alt="Screenshot 2024-07-18 at 1 04 01 PM" src="https://github.com/user-attachments/assets/a7fd6a29-ac23-4c82-aa90-8d4a7e65b490">
+
+
+#### Functional Requirements 
+1. Users can click on an ad and be redirected to the advertiser's website
+2. Advertisers can query ad click metrics over time with a minimum granularity of 1 minute
+3. Ad targeting
+4. Ad serving
+5. Cross device tracking
+6. Integration with offline marketing channels
+
+#### Non-Functional Requirements
+1. Scalable to support a peak of 10k clicks per second
+2. Low latency analytics queries for advertisers (sub-second response time)
+3. Fault tolerant and accurate data collection. We should not lose any click data.
+4. As realtime as possible. Advertisers should be able to query data as soon as possible after the click.
+5. Idempotent click tracking. We should not count the same click multiple times.
+(Optional)
+6. Fraud or spam detection
+7. Demographic and geo profiling of users
+8. Conversion tracking
+
+
+<img width="914" alt="Screenshot 2024-07-18 at 1 01 53 PM" src="https://github.com/user-attachments/assets/1f528fe8-22f7-48d4-840a-2a08e59930f0">
+
+
    
