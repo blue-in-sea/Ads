@@ -142,8 +142,8 @@ https://www.hellointerview.com/learn/system-design/answer-keys/ad-click-aggregat
 When a user clicks on an ad which was placed by the **Ad Placement Service**, we will send a request to our `/click` endpoint, which will track the click and then redirect the user to the advertiser's website.
 
  * Two ways we can handle this redirect
- 1) *Client side redirect:* When a user clicks on the ad, the browser will automatically redirect them to the target URL. The downside with this approach is that users could go to an advertiser's website without us knowing about it.
- 2) *Server side redirect:* A more robust solution is to have the user click on the ad, which will then send a request to our server. Our server can then track the click and respond with a redirect to the advertiser's website via a 302 (redirect) status code. This way, we can ensure that we track every click and provide a consistent experience for users and advertisers. This approach also allows us to append additional tracking parameters to the URL
+ 1) **Client side redirect:** When a user clicks on the ad, the browser will automatically redirect them to the target URL. The downside with this approach is that users could go to an advertiser's website without us knowing about it.
+ 2) **Server side redirect:** A more robust solution is to have the user click on the ad, which will then send a request to our server. Our server can then track the click and respond with a redirect to the advertiser's website via a 302 (redirect) status code. This way, we can ensure that we track every click and provide a consistent experience for users and advertisers. This approach also allows us to append additional tracking parameters to the URL
     
 <img width="943" alt="Screenshot 2024-07-18 at 4 50 11 PM" src="https://github.com/user-attachments/assets/b1b47211-9344-441e-82b7-49c373176d5b">
 
