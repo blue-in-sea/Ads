@@ -173,11 +173,35 @@ Using map-reduce, **Spark** will read the raw events in parallel chunks, aggrega
 
 For an analytics database, we want a technology that is optimized for reads and aggregations. Online analytical processing **(OLAP) databases like Redshift, Snowflake, or BigQuery are all good choices here. They are optimized for these types of queries and can handle the large volume of data that we will be storing.
 
-#### 2) How can we ensure that we don't lose any click data?
+### *A greatest design* is to run Real-time Analytics With Stream Processing
+To address the latency and scalability issues, let's introduce a stream for real-time processing. This system allows us to process events as they come in, rather than waiting for a batch job to run.
 
-The first thing to note is that we are already using a stream like **Kafka** or Kinesis to store the click data. By default, these streams are distributed, fault-tolerant, and highly available. They replicate data across multiple nodes and data centers, so even if a node goes down, the data is not lost. Importantly for our system, they also allow us to enable persistent storage, so even if the data is consumed by the stream processor, it is still stored in the stream for a certain period of time.
+When a click comes in our click processing service will immediately write the event to a stream like **Kafka or Kinesis**. We then need a stream processor like **Flink or Spark Streaming** to read the events from the stream and aggregate them in real-time.
+
+This works by keeping a running count of click totals in memory and updating them as new events come in. When we reach the end of a time window, we can flush the aggregated data to our OLAP database.
 
 ![ddd](https://github.com/user-attachments/assets/91ddf63c-983d-4132-93f3-ead6b8759986)
+
+
+### Deep Dive (Non Functional Requirement)
+#### 1) How can we scale to support 10k clicks per second?
+#### NonFunc1. Scalability 
+* **Click Processor Service**: We can easily scale this service **horizontally by adding more instances**. Most modern cloud providers like AWS, Azure, and GCP provide managed services that automatically scale services based on CPU or memory usage. We'll need a load balancer in front of the service to distribute the load across instances.
+
+* **Stream**: Both Kafka and Kinesis are distributed and can handle a large number of events per second but need to be properly configured. Kinesis, for example, has a limit of 1MB/s or 1000 records/s per shard, so we'll need to add some sharding. **Sharding by AdId** is a natural choice, this way, the stream processor can read from multiple shards in parallel since they will be independent of each other (all events for a given AdId will be in the same shard).
+
+* **Stream Processor**: The stream processor, like Flink, can also be scaled **horizontally by adding more tasks or jobs**. We'll have a seperate Flink job reading from each shard doing the aggregation for the AdIds in that shard.
+
+* **OLAP Database**: The OLAP database can be scaled **horizontally by adding more nodes**. While we could **shard by AdId**, we may also consider sharding by AdvertiserId instead. In doing so, all the data for a given advertiser will be on the same node, making queries for that advertiser's ads faster. This is in anticipation of advertisers querying for all of their active ads in a single view. Of course, it's important to monitor the database and query performance to ensure that it's meeting the SLAs and adapting the sharding strategy as needed.
+
+> **Hot Shards**
+> With the above scaling strategies, we should be able to handle a peak of 10k clicks per second. There is just one remaining issue, hot shards. Consider the case where Nike just launched a new Ad with Lebron James. This Ad is getting a lot of clicks and all of them are going to the same shard. This shard is now overwhelmed, which increases latency and, in the worst case, could even cause data loss.
+
+> To solve the hot shard problem, we need a way of further partitioning the data. One popular approach is to update the partition key by appending a random number to the AdId. We could do this only for the popular ads as determined by ad spend or previous click volume. This way, the partition key becomes AdId:0-N where N is the number of additional partitions for that AdId.
+
+#### 2) How can we ensure that we don't lose any click data?
+#### NonFunc3. Fault tolerant and accurate data collection
+The first thing to note is that we are already using a stream like **Kafka** or Kinesis to store the click data. By default, these streams are distributed, fault-tolerant, and highly available. They replicate data across multiple nodes and data centers, so even if a node goes down, the data is not lost. Importantly for our system, they also allow us to enable persistent storage, so even if the data is consumed by the stream processor, it is still stored in the stream for a certain period of time.
 
 We can configure a *retention period of 7 days*, for example, so that if, for some reason, our stream processor goes down, it will come back up and can read the data that it lost from the stream again.
 
@@ -186,7 +210,6 @@ Stream processors like Flink also have a feature called *checkpointing*. This is
 <img width="920" alt="Screenshot 2024-07-18 at 6 04 16 PM" src="https://github.com/user-attachments/assets/3cf7ceda-127d-416c-afe4-0e0c8f24ee84">
 
 ### *Reconciliation* matters!
-#### NonFunc3. Fault tolerant and accurate data collection
 > We should not lose any click data. Click data matters, a lot. If we lose click data, we lose money.
 
 We need to make sure that our data is correct. This is a tough balance, because guaranteeing correctness and low latency are often at odds. We can balance the two by introducing *periodic reconciliation*.
