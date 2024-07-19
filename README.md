@@ -114,10 +114,11 @@ https://www.hellointerview.com/learn/system-design/answer-keys/ad-click-aggregat
 3. Fault tolerant and accurate data collection. We should not lose any click data.
 4. As realtime as possible. Advertisers should be able to query data as soon as possible after the click.
 5. Idempotent click tracking. We should not count the same click multiple times.
+
 (Optional)
-6. Fraud or spam detection
-7. Demographic and geo profiling of users
-8. Conversion tracking
+6. Fraud or spam detection **
+7. Demographic and geo profiling of users **
+8. Conversion tracking **
 
 <img width="937" alt="Screenshot 2024-07-18 at 4 42 10 PM" src="https://github.com/user-attachments/assets/8549bb28-8d55-4a58-a204-f31c174e68ea">
 
