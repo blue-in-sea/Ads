@@ -76,7 +76,7 @@
   计价方式
    
    
-3. sss
+----------------------------------------------------------------
 
 [抖音和小红书都在引领流行趋势，二者有何不同？](https://www.niaogebiji.com/article-672863-1.html)
 1. 内容形式: 视频VS笔记
@@ -89,6 +89,7 @@
 * 抖音的电商模式使其在流行趋势的快速变现上具有优势，而小红书的广告模式则更注重长期品牌价值的培养和用户的深度参与。
 * 对于追求快速曝光和短期内实现销售转化的品牌，抖音是一个更为合适的选择；而对于那些注重品牌形象长期建设和深度用户关系维护的品牌，则可以考虑在小红书上进行更为深入的内容营销。
 
+----------------------------------------------------------------
 
 ## System Design Interview: Design an Ad Click Aggregator 
 https://www.hellointerview.com/learn/system-design/answer-keys/ad-click-aggregator
@@ -145,12 +146,42 @@ When a user clicks on an ad which was placed by the **Ad Placement Service**, we
  1) **Client side redirect:** When a user clicks on the ad, the browser will automatically redirect them to the target URL. The downside with this approach is that users could go to an advertiser's website without us knowing about it.
  2) **Server side redirect:** A more robust solution is to have the user click on the ad, which will then send a request to our server. Our server can then track the click and respond with a redirect to the advertiser's website via a 302 (redirect) status code. This way, we can ensure that we track every click and provide a consistent experience for users and advertisers. This approach also allows us to append additional tracking parameters to the URL
     
-<img width="941" alt="Screenshot 2024-07-18 at 5 15 08 PM" src="https://github.com/user-attachments/assets/85ed329e-e212-4f5b-92b4-f419e84081f7">
+<img width="939" alt="Screenshot 2024-07-18 at 5 52 25 PM" src="https://github.com/user-attachments/assets/0327e240-a51c-4bd3-b164-720005f171c3">
+
 
 #### 2) Advertisers can query ad click metrics over time at 1 minute intervals
-A simple design will be have a Click DB send data to the query service; there are lots of DB can be choosed, one way is to use Cassandra/(Amazon Keyspaces), where it was `write` optimazied in which it can support fast insertion & table updates.
+Our users were successfully redirected, now let's focus on the advertisers. They need to be able to quickly query metrics about their ads to see how they're performing.
+
+### *A simple design* will be have a single Click DB send data to the query service; 
+There are lots of DB can be choosed, one way is to use Cassandra/(Amazon Keyspaces), where it was `write` optimazied in which it can support fast insertion & table updates.
+
+<img width="941" alt="Screenshot 2024-07-18 at 5 15 08 PM" src="https://github.com/user-attachments/assets/85ed329e-e212-4f5b-92b4-f419e84081f7">
+
+
+### *A better design* is to separate Analytics Database with Batch Processing
+
+When a click comes in, we will store the raw event in our event database. Then, in batches, we can process the raw events and aggregate them into a separate database that is special optimized for querying. When an advertiser wants to query metrics, we simply query this analytics database for the metrics that they need. This allows us to provide low latency queries since we did the expensive aggregation work in advance.
+
+> How much data will we be processing exactly? If we have 10k clicks per second and we choose to run our batch processing every 5 minutes, we will be processing 3M events every minute. Each event will only be a hundred bytes at most, so we will be processing 300MB of data every minute. This is well within the capabilities of Spark.
 
 To **reduce contention** (aka. resource competiton) for separating heavy database writes/reads, and to support **fault isolation** in which 1 database down will not affect the other database serving.
 
 <img width="939" alt="Screenshot 2024-07-18 at 5 13 38 PM" src="https://github.com/user-attachments/assets/2bf2f656-4717-4208-8f8a-db688780aa82">
+
+Using map-reduce, **Spark** will read the raw events in parallel chunks, aggregate them by ad ID and minute timestamp, and then write the aggregated data to our analytics database.
+
+For an analytics database, we want a technology that is optimized for reads and aggregations. Online analytical processing **(OLAP) databases like Redshift, Snowflake, or BigQuery are all good choices here. They are optimized for these types of queries and can handle the large volume of data that we will be storing.
+
+#### 2) How can we ensure that we don't lose any click data?
+
+The first thing to note is that we are already using a stream like **Kafka** or Kinesis to store the click data. By default, these streams are distributed, fault-tolerant, and highly available. They replicate data across multiple nodes and data centers, so even if a node goes down, the data is not lost. Importantly for our system, they also allow us to enable persistent storage, so even if the data is consumed by the stream processor, it is still stored in the stream for a certain period of time.
+
+![ddd](https://github.com/user-attachments/assets/91ddf63c-983d-4132-93f3-ead6b8759986)
+
+We can configure a *retention period of 7 days*, for example, so that if, for some reason, our stream processor goes down, it will come back up and can read the data that it lost from the stream again.
+
+Stream processors like Flink also have a feature called *checkpointing*. This is where the processor periodically writes its state to a persistent storage like **S3**. If it goes down, it can read the last checkpoint and resume processing from where it left off. 
+
+<img width="569" alt="Screenshot 2024-07-18 at 6 04 16 PM" src="https://github.com/user-attachments/assets/3cf7ceda-127d-416c-afe4-0e0c8f24ee84">
+
 
