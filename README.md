@@ -158,10 +158,10 @@
 11. 创意（Creatives）： 使用各种图片、视频和动态 gif 来吸引用户的注意。
 
 ----------------------------------------------------------------
-## [[学习资料] 在线广告系统](https://www.1point3acres.com/bbs/thread-890389-1-1.html)
-### [Facebook Advertising System Design & Architecture](https://interviewnoodle.com/facebook-advertising-system-design-architecture-7eed10e68333)
+### [[学习资料] 在线广告系统](https://www.1point3acres.com/bbs/thread-890389-1-1.html)
+#### [Facebook Advertising System Design & Architecture](https://interviewnoodle.com/facebook-advertising-system-design-architecture-7eed10e68333)
 
-<img width="908" alt="Screenshot 2024-07-19 at 1 43 29 PM" src="https://github.com/user-attachments/assets/dadbbfc5-6908-4dca-8e78-c4dd47d8dd95">
+<img width="1001" alt="Screenshot 2024-07-19 at 1 46 44 PM" src="https://github.com/user-attachments/assets/87c1fd00-7106-4e6e-95b7-b23cd1e4dacb">
 
 ----------------------------------------------------------------
 
