@@ -205,7 +205,7 @@ To **reduce contention** (aka. resource competiton) for separating heavy databas
 
 Using map-reduce, **Spark** will read the raw events in parallel chunks, aggregate them by ad ID and minute timestamp, and then write the aggregated data to our analytics database.
 
-For an analytics database, we want a technology that is optimized for reads and aggregations. Online analytical processing **(OLAP) databases like Redshift, Snowflake, or BigQuery are all good choices here. They are optimized for these types of queries and can handle the large volume of data that we will be storing.
+For an analytics database, we want a technology that is optimized for reads and aggregations. Online analytical processing **(OLAP) databases like Redshift, Snowflake, or BigQuery** are all good choices here. They are optimized for these types of queries and can handle the large volume of data that we will be storing.
 
 ### *A greatest design* is to run Real-time Analytics With Stream Processing
 To address the latency and scalability issues, let's introduce a stream for real-time processing. This system allows us to process events as they come in, rather than waiting for a batch job to run.
