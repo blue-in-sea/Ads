@@ -147,6 +147,8 @@ When a user clicks on an ad which was placed by the **Ad Placement Service**, we
     
 <img width="943" alt="Screenshot 2024-07-18 at 4 50 11 PM" src="https://github.com/user-attachments/assets/b1b47211-9344-441e-82b7-49c373176d5b">
 
+2) Advertisers can query ad click metrics over time at 1 minute intervals
+A simple design will be have a Click DB send data to the query service; there are lots of DB can be choosed, one way is to use Cassandra/(Amazon Keyspaces), where it was `write` optimazied in which it can support fast insertion & table updates.
+<img width="475" alt="Screenshot 2024-07-18 at 5 03 44 PM" src="https://github.com/user-attachments/assets/2c083635-cfe0-42ee-8f23-7f73c0e7a323">
 
-   
    
