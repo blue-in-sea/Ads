@@ -191,4 +191,28 @@ We need to make sure that our data is correct. This is a tough balance, because 
 
 Despite our best efforts with the above measures, things could still go wrong. Transient processing errors in Flink, bad code pushes, out-of-order events in the stream, etc., could all lead to slight inaccuracies in our data. To catch these, we can introduce a *periodic reconciliation job that runs every hour or day*.
 
+![kk](https://github.com/user-attachments/assets/04a4c64d-8432-4543-9e4c-c26dcbf9963f)
+
+At the end of the stream, alongside the stream processors, we can also dump the raw click events to a data lake like S3. **Flink** supports this through its FileSystem interface and various **connectors**, allowing for both batch and **real-time data processing output**s to be stored directly in **S3 buckets**. Then, as with the "good" answer in **"Advertisers can query ad click metrics over time at 1-minute intervals"** above, we can run a **batch job** that reads all the raw click events from the data lake and re-aggregates them. This way, we can **compare** the results of the batch job to the results of the stream processor and ensure that they match.
+
+This essentially combines our two solutions, real-time stream processing and periodic batch processing, to ensure that our data is not only fast but also accurate.
+
+### 3) How can we prevent abuse from users clicking on ads multiple times? 
+> Generate a Unique impression ID
+
+**Ad Placement Service** generate a *unique impression ID for each ad instance shown to the user*. This impression ID would be sent to the browser along with the ad and will serve as an idempotency key. When the user clicks on the ad, the browser sends the impression ID along with the click data. This way we can **dedup** clicks based on the impression ID.
+
+> What is an Impression? An ad impression is a metric that represents the display of an ad on a web page. It is counted when the ad is fetched from its source and displayed on the user's screen. If we showed the same user the same ad multiple times in multiple places, then each of these placements is a new impression.
+
+#### How do we dedup?
+We should dedup *before* we put the click in the stream (Flink). When a click comes in, we check if the impression ID exists in a **cache**. If it does, then its a duplicate and we ignore it. If it doesn't, then we put the click in the stream and add the impression ID to the cache.
+
+Morever, if a malicious user could send a bunch of fake clicks with falsified impression IDs, we can *sign the impression ID with a secret key* before sending it to the browser. When the click comes in, we can verify the signature to ensure the impression ID is valid before checking the cache.
+
+![mmm](https://github.com/user-attachments/assets/12c5d36e-6557-4135-b2ec-dabcf55c9f13)
+
+
+
+
+
 
