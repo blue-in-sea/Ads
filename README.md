@@ -182,6 +182,6 @@ We can configure a *retention period of 7 days*, for example, so that if, for so
 
 Stream processors like Flink also have a feature called *checkpointing*. This is where the processor periodically writes its state to a persistent storage like **S3**. If it goes down, it can read the last checkpoint and resume processing from where it left off. 
 
-<img width="569" alt="Screenshot 2024-07-18 at 6 04 16 PM" src="https://github.com/user-attachments/assets/3cf7ceda-127d-416c-afe4-0e0c8f24ee84">
+<img width="920" alt="Screenshot 2024-07-18 at 6 04 16 PM" src="https://github.com/user-attachments/assets/3cf7ceda-127d-416c-afe4-0e0c8f24ee84">
 
 
