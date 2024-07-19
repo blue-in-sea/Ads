@@ -211,6 +211,13 @@ Morever, if a malicious user could send a bunch of fake clicks with falsified im
 
 ![mmm](https://github.com/user-attachments/assets/12c5d36e-6557-4135-b2ec-dabcf55c9f13)
 
+Let's recap:
+* **Ad Placement Service** generates a **unique impression ID** for each ad instance shown to the user.
+* The impression ID is signed with **a secret key** and sent to the browser along with the ad.
+* When the user clicks on the ad, the browser sends the impression ID along with the click data.
+* The Click Processor verifies the **signature** of the impression ID.
+* The Click Processor checks if the impression ID **exists in a cache**. If it does, then it's a duplicate, and we ignore it. If it doesn't, then we put the click in the stream and add the impression ID to the cache.
+
 
 
 
