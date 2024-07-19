@@ -150,7 +150,7 @@ When a user clicks on an ad which was placed by the **Ad Placement Service**, we
 #### 2) Advertisers can query ad click metrics over time at 1 minute intervals
 A simple design will be have a Click DB send data to the query service; there are lots of DB can be choosed, one way is to use Cassandra/(Amazon Keyspaces), where it was `write` optimazied in which it can support fast insertion & table updates.
 
-<img width="475" alt="Screenshot 2024-07-18 at 5 03 44 PM" src="https://github.com/user-attachments/assets/7821b547-6a8f-4896-a44b-34dcafaa8de0">
+<img width="939" alt="Screenshot 2024-07-18 at 5 03 44 PM" src="https://github.com/user-attachments/assets/7821b547-6a8f-4896-a44b-34dcafaa8de0">
 
 To **reduce contention** (aka. resource competiton) for separating heavy database writes/reads, and to support **fault isolation** in which 1 database down will not affect the other database serving.
 
