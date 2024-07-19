@@ -162,6 +162,7 @@ There are lots of DB can be choosed, one way is to use Cassandra/(Amazon Keyspac
 
 When a click comes in, we will store the raw event in our event database. Then, in batches, we can process the raw events and aggregate them into a separate database that is special optimized for querying. When an advertiser wants to query metrics, we simply query this analytics database for the metrics that they need. This allows us to provide low latency queries since we did the expensive aggregation work in advance.
 
+#### NonFunc1. Scalable to support a peak of *10k clicks** per second
 > How much data will we be processing exactly? If we have 10k clicks per second and we choose to run our batch processing every 5 minutes, we will be processing 3M events every minute. Each event will only be a hundred bytes at most, so we will be processing 300MB of data every minute. This is well within the capabilities of Spark.
 
 To **reduce contention** (aka. resource competiton) for separating heavy database writes/reads, and to support **fault isolation** in which 1 database down will not affect the other database serving.
@@ -185,7 +186,8 @@ Stream processors like Flink also have a feature called *checkpointing*. This is
 <img width="920" alt="Screenshot 2024-07-18 at 6 04 16 PM" src="https://github.com/user-attachments/assets/3cf7ceda-127d-416c-afe4-0e0c8f24ee84">
 
 ### *Reconciliation* matters!
-> Click data matters, a lot. If we lose click data, we lose money.
+#### NonFunc3. Fault tolerant and accurate data collection
+> We should not lose any click data. Click data matters, a lot. If we lose click data, we lose money.
 
 We need to make sure that our data is correct. This is a tough balance, because guaranteeing correctness and low latency are often at odds. We can balance the two by introducing *periodic reconciliation*.
 
@@ -219,7 +221,7 @@ Let's recap:
 * **The Click Processor** checks if the impression ID **exists in a cache**. If it does, then it's a duplicate, and we ignore it. If it doesn't, then we put the click in the stream and add the impression ID to the cache.
 
 ### 4) How can we ensure that advertisers can query metrics at low latency?
-
+#### NonFunc2. Low latency analytics queries
 Query can still be slow is when we are aggregating over **larger time windows**, like a days, weeks, or even years. In this case, we can **pre-aggregate** the data in the **OLAP database**. This can be done by creating a new table that stores the aggregated data at a higher level of granularity, like daily or weekly.
 
 > Pre-aggregating the data in the OLAP database is a common technique to improve query performance. It can be thought of similar to a form of caching. We are trading off storage space for query performance for the most common queries.
