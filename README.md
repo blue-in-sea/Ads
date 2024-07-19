@@ -124,6 +124,47 @@
 
 ----------------------------------------------------------------
 
+[怎样设计一个广告系统]([https://www.niaogebiji.com/article-672863-1.html](https://developer.aliyun.com/article/1110460)
+> 百货店大亨约翰·沃纳梅克(John Wanamaker)在 100 多年前曾经说过：“我花在广告上的钱有一半是浪费的，但问题是我不知道是哪一半。”
+
+衡量广告效果的标准取决于能够提高公司盈利能力的算法/广告引擎。广告行业所需要的核心能力是算法能力、工程能力、商业理解能力。
+
+<img width="585" alt="Screenshot 2024-07-19 at 1 36 51 PM" src="https://github.com/user-attachments/assets/257b0e9b-b9af-4e43-97c3-dae5746acf15">
+
+1. 品牌认知度（Brand Awareness）： 消费者对品牌的认知度，这是推广新产品的关键步骤。
+2. 触达（Reach）： 通过活动可以接触到的潜在客户的估计数量。
+3. 参与度（Engagement）： 创造性的想法能够让人们参与进来，并随着时间的推移创造出有意义的互动。
+4. 发帖参与度（Post Engagement）： 人们在 Facebook 页面上与他人的互动次数，可以是任何形式的互动，从点赞到评论，再到分享。
+5. 页面喜欢（Page Likes）： 人们希望看到你的促销活动、产品或在 Facebook 页面上发布的任何东西。
+6. 事件响应（Event Responses）： 有兴趣或打算支持 Facebook 事件的人数。
+7. 流量（Traffic）： 访问网站、Facebook 页面或点击链接的访客数量。
+8. 潜在客户数（Lead Generation）： 增加未来销售的潜在客户的数量
+9. 转化（Conversion）： 客户完成了订购，贡献了销售额
+
+<img width="553" alt="Screenshot 2024-07-19 at 1 37 40 PM" src="https://github.com/user-attachments/assets/7f584285-f6c0-4df6-ba40-920b9af0dccf">
+
+
+#### 目标客户群(标准)
+1. 位置（Location）： 可以选择在特定国家或特定城镇的特定半径内显示广告，可以点选想要的地区。
+2. 年龄（Age）： 对于 B2B 客户来说，他们不太可能将目标用户锁定在 21 岁以下的用户，因此这是一个很好的特性。此外，还可以针对不同的受众，或根据产品特性，针对多个年龄范围。
+3. 性别（Gender）： 可以瞄准特定性别的人群，专注于核心用户，这个功能是为性别导向的产品设计的。
+4. 详细目标（Detailed Targeting）： 这一功能是针对特定的兴趣，行为和人口统计数据，在 Facebook 用户数据中打过特殊的标签，从而可以将潜在受众最大化。
+5. 联系（Connections）： 这个功能是针对那些没有联系你，或者与你有联系的人。这样做的目的是为了从现有的粉丝那里获得更多的信息从而获得更多新用户。
+6. 语言（Languages）： 该特性根据用户设置的语言来定位用户。使用特定语言的人群有自己的文化，你的产品也许正好可以迎合这一人群。
+7. 放置（Placements）： 这是为了最大化你的预算，通过多个网页向尽可能多的用户展示你的广告，或者可以选择特定网页来展示广告。
+8. 活动设置（Campaign settings）： 用来决定你的活动的每日预算。
+9. 预算（Budget）： 总体预算或者每日预算的选择。
+10. 投标（Bidding）： 设置最低成本。
+11. 创意（Creatives）： 使用各种图片、视频和动态 gif 来吸引用户的注意。
+
+----------------------------------------------------------------
+## [[学习资料] 在线广告系统](https://www.1point3acres.com/bbs/thread-890389-1-1.html)
+### [Facebook Advertising System Design & Architecture](https://interviewnoodle.com/facebook-advertising-system-design-architecture-7eed10e68333)
+
+<img width="908" alt="Screenshot 2024-07-19 at 1 43 29 PM" src="https://github.com/user-attachments/assets/dadbbfc5-6908-4dca-8e78-c4dd47d8dd95">
+
+----------------------------------------------------------------
+
 ## System Design Interview: Design an Ad Click Aggregator 
 https://www.hellointerview.com/learn/system-design/answer-keys/ad-click-aggregator
 
