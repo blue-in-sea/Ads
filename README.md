@@ -215,10 +215,14 @@ Let's recap:
 * **Ad Placement Service** generates a **unique impression ID** for each ad instance shown to the user.
 * The impression ID is signed with **a secret key** and sent to the browser along with the ad.
 * When the user clicks on the ad, the browser sends the impression ID along with the click data.
-* The Click Processor verifies the **signature** of the impression ID.
-* The Click Processor checks if the impression ID **exists in a cache**. If it does, then it's a duplicate, and we ignore it. If it doesn't, then we put the click in the stream and add the impression ID to the cache.
+* **The Click Processor** verifies the **signature** of the impression ID.
+* **The Click Processor** checks if the impression ID **exists in a cache**. If it does, then it's a duplicate, and we ignore it. If it doesn't, then we put the click in the stream and add the impression ID to the cache.
 
+### 4) How can we ensure that advertisers can query metrics at low latency?
 
+Query can still be slow is when we are aggregating over **larger time windows**, like a days, weeks, or even years. In this case, we can **pre-aggregate** the data in the **OLAP database**. This can be done by creating a new table that stores the aggregated data at a higher level of granularity, like daily or weekly.
+
+> Pre-aggregating the data in the OLAP database is a common technique to improve query performance. It can be thought of similar to a form of caching. We are trading off storage space for query performance for the most common queries.
 
 
 
