@@ -184,4 +184,11 @@ Stream processors like Flink also have a feature called *checkpointing*. This is
 
 <img width="920" alt="Screenshot 2024-07-18 at 6 04 16 PM" src="https://github.com/user-attachments/assets/3cf7ceda-127d-416c-afe4-0e0c8f24ee84">
 
+### *Reconciliation* matters!
+> Click data matters, a lot. If we lose click data, we lose money.
+
+We need to make sure that our data is correct. This is a tough balance, because guaranteeing correctness and low latency are often at odds. We can balance the two by introducing *periodic reconciliation*.
+
+Despite our best efforts with the above measures, things could still go wrong. Transient processing errors in Flink, bad code pushes, out-of-order events in the stream, etc., could all lead to slight inaccuracies in our data. To catch these, we can introduce a *periodic reconciliation job that runs every hour or day*.
+
 
